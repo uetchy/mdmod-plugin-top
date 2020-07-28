@@ -1,7 +1,7 @@
 {
   "name": "mdmod-plugin-top",
   "description": "mdmod plugin to create table of packages.",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "author": "Yasuaki Uechi <y@uechi.io> (https://uechi.io)",
   "scripts": {
     "build": "yarn build:ts --minify",
