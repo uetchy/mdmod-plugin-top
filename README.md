@@ -1,5 +1,10 @@
 # mdmod-plugin-top
 
+[![npm](https://flat.badgen.net/npm/v/mdmod-plugin-top)][npm-url]
+[![npm: total downloads](https://flat.badgen.net/npm/dt/mdmod-plugin-top)][npm-url]
+
+[npm-url]: https://npmjs.org/package/mdmod-plugin-top
+
 [mdmod](https://github.com/uetchy/mdmod) plugin to create table of packages.
 
 ## Install
