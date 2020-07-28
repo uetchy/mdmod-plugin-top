@@ -5,7 +5,7 @@
 
 [npm-url]: https://npmjs.org/package/mdmod-plugin-top
 
-[mdmod](https://github.com/uetchy/mdmod) plugin to create table of packages.
+[mdmod](https://github.com/uetchy/mdmod) plugin to create a table of packages.
 
 ## Install
 
