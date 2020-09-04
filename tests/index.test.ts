@@ -1,18 +1,18 @@
-import execa from 'execa';
+import execa from "execa";
 
 async function run(...flags: string[]) {
-  const { stdout } = await execa('mdmod', flags, {
+  const { stdout } = await execa("mdmod", flags, {
     cwd: __dirname,
   });
   return stdout;
 }
 
 function strip(str: string): string {
-  return str.replace(/\n?<!--[\w\W]+?-->\n?/g, '');
+  return str.replace(/\n?<!--[\w\W]+?-->\n?/g, "");
 }
 
-it('replace', async () => {
-  const out = await run('input.md', '--dry-run');
+it("replace", async () => {
+  const out = await run("input.md", "--dry-run");
   expect(strip(out)).toBe(`### [pkg1](packages/pkg1)
 
 testPackage

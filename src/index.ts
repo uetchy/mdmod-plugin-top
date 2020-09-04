@@ -1,7 +1,7 @@
-import fs from 'fs';
-import globby from 'globby';
-import fetch from 'node-fetch';
-import { join } from 'path';
+import fs from "fs";
+import globby from "globby";
+import fetch from "node-fetch";
+import { join } from "path";
 
 interface PackageJson {
   [index: string]: unknown;
@@ -33,28 +33,28 @@ function descFirst<T extends readonly [number, {}]>(a: T, b: T) {
 
 async function downloadCount(pkgName: string): Promise<number> {
   const { downloads } = await fetch(
-    `https://api.npmjs.org/downloads/point/last-month/${pkgName}`,
+    `https://api.npmjs.org/downloads/point/last-month/${pkgName}`
   ).then((res) => res.json());
   return downloads as number;
 }
 
 async function createToP({ cwd }: { cwd: string }): Promise<string> {
   const packages = (
-    await globby(['packages/*'], {
+    await globby(["packages/*"], {
       onlyDirectories: true,
       cwd,
     })
   ).map((p) => ({
     path: p,
     meta: JSON.parse(
-      fs.readFileSync(join(p, 'package.json'), 'utf8'),
+      fs.readFileSync(join(p, "package.json"), "utf8")
     ) as PackageJson,
   }));
 
   const packagesWithDLCount = await Promise.all(
     packages.map(
-      async (pkg) => [(await downloadCount(pkg.meta.name)) || 0, pkg] as const,
-    ),
+      async (pkg) => [(await downloadCount(pkg.meta.name)) || 0, pkg] as const
+    )
   );
 
   const table = packagesWithDLCount
@@ -69,7 +69,7 @@ async function createToP({ cwd }: { cwd: string }): Promise<string> {
       const result = [];
       result.push(`### [${title}](${path})`);
       if (description) {
-        result.push('\n' + description);
+        result.push("\n" + description);
       }
 
       result.push(`\n${badge(name)}`);
@@ -79,9 +79,9 @@ npm install --save ${pkg.meta.name}
 # or
 yarn add ${pkg.meta.name}
 \`\`\``);
-      return result.join('\n');
+      return result.join("\n");
     })
-    .join('\n\n');
+    .join("\n\n");
 
   return table;
 }
