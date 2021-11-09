@@ -3,8 +3,12 @@
 ## Development Guide
 
 ```bash
-git clone https://github.com/uetchy/mdmod-plugin-top.git && cd mdmod-plugin-top
 yarn install
+yarn build
+yarn link
+cd tests
+yarn link mdmod-plugin-top
+yarn test
 ```
 
 ## Release Guide (Maintainers only)
