@@ -1,6 +1,6 @@
 import fs from "fs";
 import globby from "globby";
-import fetch from "node-fetch";
+import fetch from "cross-fetch";
 import { join } from "path";
 
 interface PackageJson {

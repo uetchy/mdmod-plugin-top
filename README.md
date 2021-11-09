@@ -10,8 +10,8 @@
 ## Install
 
 ```bash
-npm i -g mdmod-plugin-top
-# or `npm i mdmod-plugin-top` to use it locally
+npm i -g mdmod mdmod-plugin-top
+# or `npm i mdmod mdmod-plugin-top` to use it locally
 ```
 
 ## Use
